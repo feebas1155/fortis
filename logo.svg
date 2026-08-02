@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64">
-  <rect width="64" height="64" rx="14" fill="#d4a853"/>
-  <rect x="22" y="15" width="9" height="34" rx="2.5" fill="#0a0e14"/>
-  <rect x="22" y="15" width="24" height="9" rx="2.5" fill="#0a0e14"/>
-  <rect x="22" y="30" width="17" height="9" rx="2.5" fill="#0a0e14"/>
+  <path d="M0 14 Q0 0 14 0 H50 Q64 0 64 14 V42 H56 V48 H48 V42 H40 V48 H32 V42 H24 V48 H16 V42 H8 V48 H0 Z" fill="#d4a853"/>
+  <rect x="22" y="13" width="9" height="25" rx="2.5" fill="#0a0e14"/>
+  <rect x="22" y="13" width="24" height="9" rx="2.5" fill="#0a0e14"/>
+  <rect x="22" y="27" width="17" height="9" rx="2.5" fill="#0a0e14"/>
   <text x="80" y="39" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#e4e8ee" letter-spacing="-0.4">Fortis Digital</text>
 </svg>

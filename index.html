@@ -385,10 +385,10 @@
 <section id="pricing">
   <div class="container">
     <div class="section-label">Pricing</div>
-    <div class="section-title">One kit. One price. No surprises.</div>
+    <div class="section-title">From instant kit to full-service launch.</div>
     <div class="pricing-grid">
 
-      <div class="plan featured">
+      <div class="plan">
         <div class="plan-name">Agency Landing Page</div>
         <div class="plan-price">$99<span> one-time</span></div>
         <div class="plan-desc">Full HTML template + license key for one domain. You keep 100% of what your client pays you.</div>
@@ -400,7 +400,38 @@
           <li>Instant delivery after purchase</li>
           <li>Perpetual license (no expiry)</li>
         </ul>
-        <a href="#" class="btn btn-primary js-buy" style="width:100%;text-align:center;justify-content:center;">Buy on Pocketsflow — $99</a>
+        <a href="#" class="btn btn-ghost js-buy" data-plan="kit" style="width:100%;text-align:center;justify-content:center;">Buy kit — $99</a>
+      </div>
+
+      <div class="plan featured">
+        <div class="plan-name">Full-Service Launch</div>
+        <div class="plan-price">$2,500<span> per project</span></div>
+        <div class="plan-desc">Everything in the kit, plus custom smart contracts and a production deployment handled end-to-end by us.</div>
+        <ul class="plan-features">
+          <li>Everything in the $99 kit</li>
+          <li>Custom smart contracts for your project</li>
+          <li>Production deployment to your domain</li>
+          <li>Branding &amp; content setup included</li>
+          <li>2 revision rounds</li>
+          <li>Pre-launch security audit</li>
+          <li>30-day post-launch support</li>
+        </ul>
+        <a href="#" class="btn btn-primary js-buy" data-plan="full" style="width:100%;text-align:center;justify-content:center;">Start a launch — $2,500</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">Prepaid Credits</div>
+        <div class="plan-price">$50,000<span> → $65,000 credits</span></div>
+        <div class="plan-desc">Prepay today and get $65,000 in Fortis credits — a 30% bonus on every future kit, launch, and service.</div>
+        <ul class="plan-features">
+          <li>$65,000 in credits for $50,000</li>
+          <li>Applies to all kits &amp; services</li>
+          <li>Use for future projects, anytime</li>
+          <li>Priority scheduling</li>
+          <li>Ideal for agencies &amp; studios</li>
+          <li>Dedicated support channel</li>
+        </ul>
+        <a href="#" class="btn btn-ghost js-buy" data-plan="credits" style="width:100%;text-align:center;justify-content:center;">Get credits — $50,000</a>
       </div>
 
     </div>
@@ -415,15 +446,23 @@
 </footer>
 
 <script>
-// Pocketsflow product URL — set once the listing is live (2026-08-03 test sale)
-const POCKETSFLOW_URL = ''; // TODO: https://pocketsflow.com/...
+// Payment links — set when processors are live
+// kit: Pocketsflow listing (2026-08-03 test sale)
+// full + credits: Helcim or Pocketsflow (services fit check pending)
+const PAYMENT_LINKS = {
+  kit: '',      // TODO: Pocketsflow product URL
+  full: '',     // TODO: Helcim payment link
+  credits: ''   // TODO: Helcim payment link
+};
 document.querySelectorAll('.js-buy').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
-    if (POCKETSFLOW_URL) {
-      window.location.href = POCKETSFLOW_URL;
+    const plan = btn.dataset.plan;
+    const url = PAYMENT_LINKS[plan];
+    if (url) {
+      window.location.href = url;
     } else {
-      alert('Pocketsflow listing goes live shortly. Check back in a day — or ping us on X @FortisDigital.');
+      alert('Payment link for this tier goes live shortly. Ping us on X @FortisDigital.');
     }
   });
 });

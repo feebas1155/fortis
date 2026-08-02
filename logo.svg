@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64">
+  <rect width="64" height="64" rx="14" fill="#d4a853"/>
+  <rect x="22" y="15" width="9" height="34" rx="2.5" fill="#0a0e14"/>
+  <rect x="22" y="15" width="24" height="9" rx="2.5" fill="#0a0e14"/>
+  <rect x="22" y="30" width="17" height="9" rx="2.5" fill="#0a0e14"/>
+  <text x="80" y="39" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#e4e8ee" letter-spacing="-0.4">Fortis Digital</text>
+</svg>

@@ -309,7 +309,7 @@
         </div>
       </div>
       <div class="kit-cta">
-        <a href="#pricing" class="btn btn-primary js-buy" style="padding:14px 28px;font-size:1rem;">Buy on Pocketsflow — $99</a>
+        <a href="#pricing" class="btn btn-primary js-buy" data-plan="kit" style="padding:14px 28px;font-size:1rem;">Buy on Pocketsflow — $99</a>
       </div>
     </div>
   </div>
@@ -463,8 +463,8 @@
 // kit: Pocketsflow listing (2026-08-03 test sale)
 // full + credits: Helcim or Pocketsflow (services fit check pending)
 const PAYMENT_LINKS = {
-  kit: '',      // TODO: Pocketsflow product URL
-  full: '',     // TODO: Helcim payment link
+  kit: 'https://feebas.pocketsflow.com/agency-landing',  // Pocketsflow product page (live 2026-08-03)
+  full: '',     // TODO: services don't qualify for MoR — Helcim/quote or email
   credits: ''   // TODO: Helcim payment link
 };
 document.querySelectorAll('.js-buy').forEach(btn => {

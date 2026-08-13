@@ -324,7 +324,7 @@
       <div class="step">
         <div class="step-num"></div>
         <h4>Buy the kit</h4>
-        <p>Secure checkout on Stripe. One-time payment, no subscription, no hidden fees.</p>
+        <p>Secure checkout on Pocketsflow. One-time payment, no subscription, no hidden fees.</p>
       </div>
       <div class="step">
         <div class="step-num"></div>
@@ -460,9 +460,10 @@
 
 <script>
 // Payment links — set when processors are live
-// kit/full/credits: Stripe Payment Links (2026-08-04 — switched from Pocketsflow)
+// kit: Pocketsflow (2026-08-13 — moved back from Stripe, slug agency-landing)
+// full/credits: Stripe Payment Links (services/credits — Pocketsflow is MoR for digital goods only)
 const PAYMENT_LINKS = {
-  kit: 'https://buy.stripe.com/5kQeV6bW44cH5Qf5GI3wQ0e',      // $99 — Agency Landing Page kit
+  kit: 'https://feebas.pocketsflow.com/agency-landing',       // $99 — Agency Landing Page kit
   full: 'https://buy.stripe.com/7sY5kw8JS24z0vVede3wQ0f',     // $2,500 — Full-Service Launch
   credits: 'https://buy.stripe.com/8x2dR2e4ccJdemLc563wQ0g'   // $50,000 — Prepaid Credits
 };

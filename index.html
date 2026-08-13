@@ -460,12 +460,11 @@
 
 <script>
 // Payment links — set when processors are live
-// kit: Pocketsflow (2026-08-13 — moved back from Stripe, slug agency-landing)
-// full/credits: Stripe Payment Links (services/credits — Pocketsflow is MoR for digital goods only)
+// All 3 tiers: Pocketsflow (2026-08-13 — moved back from Stripe)
 const PAYMENT_LINKS = {
   kit: 'https://feebas.pocketsflow.com/agency-landing',       // $99 — Agency Landing Page kit
-  full: 'https://buy.stripe.com/7sY5kw8JS24z0vVede3wQ0f',     // $2,500 — Full-Service Launch
-  credits: 'https://buy.stripe.com/8x2dR2e4ccJdemLc563wQ0g'   // $50,000 — Prepaid Credits
+  full: 'https://feebas.pocketsflow.com/full-service-launch', // $2,500 — Full-Service Launch
+  credits: 'https://feebas.pocketsflow.com/prepaid-credits'   // $50,000 — Prepaid Credits
 };
 document.querySelectorAll('.js-buy').forEach(btn => {
   btn.addEventListener('click', e => {

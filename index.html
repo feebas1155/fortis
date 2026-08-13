@@ -431,19 +431,19 @@
       </div>
 
       <div class="plan">
-        <div class="plan-name">Prepaid Credits</div>
-        <div class="plan-price">$50,000<span> → $65,000 credits</span></div>
-        <div class="plan-desc">Prepay today and get $65,000 in Fortis credits — a 30% bonus on every future kit, launch, and service.</div>
+        <div class="plan-name">Launch Accelerator</div>
+        <div class="plan-price">$20,000<span> per launch</span></div>
+        <div class="plan-desc">Full launch plus CoinGecko &amp; CoinMarketCap listings, DexTools trending (72h), and launch snipe service — end-to-end by us.</div>
         <ul class="plan-features">
-          <li>$65,000 in credits for $50,000</li>
-          <li>Applies to all kits &amp; services</li>
-          <li>Credits never expire</li>
-          <li>Use for future projects, anytime</li>
+          <li>Everything in the $2,500 launch</li>
+          <li>CoinGecko listing</li>
+          <li>CoinMarketCap listing</li>
+          <li>DexTools trending — 72 hours</li>
+          <li>Launch snipe service</li>
           <li>Priority scheduling</li>
-          <li>Ideal for agencies &amp; studios</li>
           <li>Dedicated support channel</li>
         </ul>
-        <a href="#" class="btn btn-ghost js-buy" data-plan="credits" style="width:100%;text-align:center;justify-content:center;">Get credits — $50,000</a>
+        <a href="#" class="btn btn-ghost js-buy" data-plan="accelerator" style="width:100%;text-align:center;justify-content:center;">Launch it — $20,000</a>
       </div>
 
     </div>
@@ -462,9 +462,9 @@
 // Payment links — set when processors are live
 // All 3 tiers: Pocketsflow (2026-08-13 — moved back from Stripe)
 const PAYMENT_LINKS = {
-  kit: 'https://feebas.pocketsflow.com/agency-landing',       // $99 — Agency Landing Page kit
-  full: 'https://feebas.pocketsflow.com/full-service-launch', // $2,500 — Full-Service Launch
-  credits: 'https://feebas.pocketsflow.com/prepaid-credits'   // $50,000 — Prepaid Credits
+  kit: 'https://feebas.pocketsflow.com/agency-landing',          // $99 — Agency Landing Page kit
+  full: 'https://feebas.pocketsflow.com/full-service-launch',    // $2,500 — Full-Service Launch
+  accelerator: 'https://feebas.pocketsflow.com/launch-accelerator'  // $20,000 — Launch Accelerator
 };
 document.querySelectorAll('.js-buy').forEach(btn => {
   btn.addEventListener('click', e => {

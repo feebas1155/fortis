@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onboarding — Fortis Digital</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14; --surface: #131820; --border: #1e2836;
+    --text: #e4e8ee; --muted: #8b95a5; --accent: #d4a853; --accent-glow: rgba(212,168,83,0.15);
+    --green: #2ecc71;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(10,14,20,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; padding: 16px 24px; }
+  .logo { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; }
+  .logo-icon { width: 28px; height: 28px; background: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; color: var(--bg); }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+  .nav-links a:hover { color: var(--text); }
+
+  main { padding: 140px 0 96px; }
+
+  .badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--green); background: rgba(46,204,113,0.1); border: 1px solid rgba(46,204,113,0.25); border-radius: 999px; padding: 6px 14px; margin-bottom: 20px; }
+  .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+
+  h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+  .accent { color: var(--accent); }
+  .lead { color: var(--muted); font-size: 1.08rem; margin-bottom: 48px; max-width: 560px; }
+
+  h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 20px; color: var(--text); }
+
+  .steps { list-style: none; counter-reset: step; margin-bottom: 48px; }
+  .steps li { counter-increment: step; position: relative; padding: 0 0 28px 64px; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--accent-glow); border: 1px solid var(--accent);
+    color: var(--accent); font-weight: 800; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .steps li::after {
+    content: ''; position: absolute; left: 20px; top: 44px; bottom: 4px;
+    width: 1px; background: var(--border);
+  }
+  .steps li:last-child::after { display: none; }
+  .steps strong { display: block; font-size: 1.02rem; font-weight: 700; margin-bottom: 4px; }
+  .steps span { color: var(--muted); font-size: 0.95rem; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 20px; }
+  .card h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+  .checklist { list-style: none; }
+  .checklist li { position: relative; padding: 6px 0 6px 28px; color: var(--muted); font-size: 0.95rem; }
+  .checklist li::before { content: '✓'; position: absolute; left: 0; top: 6px; color: var(--accent); font-weight: 700; }
+
+  .note { background: var(--accent-glow); border: 1px solid var(--accent); border-radius: 12px; padding: 18px 20px; color: var(--text); font-size: 0.92rem; margin-bottom: 48px; }
+  .note a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .note a:hover { text-decoration: underline; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 9px;
+    font-size: 0.95rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s;
+  }
+  .btn-primary { background: var(--accent); color: var(--bg); }
+  .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  footer { border-top: 1px solid var(--border); padding: 48px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--muted); text-decoration: none; margin: 0 8px; }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 1.9rem; }
+    main { padding: 120px 0 64px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-icon">F</div> Fortis Digital</a>
+    <div class="nav-links"><a href="index.html">← Back to home</a></div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <div class="badge"><span class="badge-dot"></span> Order confirmed</div>
+    <h1>Welcome to <span class="accent">Fortis</span>.</h1>
+    <p class="lead">Your order is confirmed and we're spinning up your onboarding. Here's exactly what happens next — and what to have ready.</p>
+
+    <h2>What happens next</h2>
+    <ol class="steps">
+      <li>
+        <strong>Kickoff call</strong>
+        <span>We reach out within 24 hours to schedule your kickoff and align on goals, timelines, and priorities.</span>
+      </li>
+      <li>
+        <strong>Onboarding intake</strong>
+        <span>We collect your brand assets, socials, project links, and KPIs — a short form and one call, nothing more.</span>
+      </li>
+      <li>
+        <strong>Work begins</strong>
+        <span>Social setup and KOL vetting + outreach start immediately after kickoff. You'll see motion in the first few days.</span>
+      </li>
+      <li>
+        <strong>Monthly reporting</strong>
+        <span>Real, verifiable metrics — on-chain volume, real engagement, conversion — delivered every billing cycle. No vanity numbers.</span>
+      </li>
+    </ol>
+
+    <div class="card">
+      <h3>Have these ready</h3>
+      <ul class="checklist">
+        <li>Brand kit — logo, colors, fonts</li>
+        <li>Social handles (X, Telegram, and any others)</li>
+        <li>Project links — token, docs, community</li>
+        <li>Goals and KPIs for the month</li>
+        <li>Primary point of contact</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      This is a <strong>recurring subscription</strong>. You can manage, pause, or cancel anytime from your customer portal. Questions before your kickoff? Email <a href="mailto:hello@fortisdigital.dev">hello@fortisdigital.dev</a> or reply to your order confirmation.
+    </div>
+
+    <a class="btn btn-primary" href="mailto:hello@fortisdigital.dev">Email us</a>
+    <a class="btn btn-ghost" href="index.html" style="margin-left:8px;">Back to home</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Fortis Digital &copy; 2026</p>
+    <p style="margin-top:12px;">
+      <a href="terms.html">Terms</a>
+      <a href="refund-policy.html">Refund Policy</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

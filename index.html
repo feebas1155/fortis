@@ -486,24 +486,22 @@
 
       <div class="plan featured">
         <div class="plan-badge">Flagship</div>
-        <div class="plan-name">PR Package</div>
+        <div class="plan-name">Sniper Service</div>
         <div class="plan-price">$20,000<span>per launch</span></div>
-        <div class="plan-desc">The full launch plus a complete PR and listings package — end-to-end by us.</div>
+        <div class="plan-desc">Sniping as a service with warmed wallets — done for you, end-to-end.</div>
         <ul class="plan-features">
+          <li>Warmed wallet infrastructure</li>
+          <li>Launch snipe execution</li>
           <li>Everything in Launch Setup</li>
-          <li>Press release (tier-1 crypto media)</li>
-          <li>CoinGecko listing application</li>
-          <li>CoinMarketCap listing application</li>
-          <li>Community growth &amp; social strategy</li>
           <li>Priority scheduling + dedicated support</li>
         </ul>
-        <a href="#" class="btn js-buy" data-plan="accelerator">Launch it — $20,000</a>
+        <a href="contact.html" class="btn">Contact us</a>
       </div>
 
       <div class="plan">
         <div class="plan-badge">Recurring</div>
         <div class="plan-name">Marketing Retainer</div>
-        <div class="plan-price">$10,000<span>/month</span></div>
+        <div class="plan-price">$2,500<span>/week</span></div>
         <div class="plan-desc">An always-on growth team. Social, KOL management, and ongoing campaigns that keep the volume and the community moving.</div>
         <ul class="plan-features">
           <li>Dedicated social &amp; KOL management</li>
@@ -555,12 +553,11 @@
 <script>
 // Payment links — Pocketsflow checkout (all tiers)
 // $99 kit = /agency-landing · $2,500 launch = /launch-setup
-// $20,000 PR package = /launch-accelerator · $10K/mo retainer = subscription checkout
+// $20K Sniper Service = contact us (no self-serve) · $2,500/week retainer = subscription checkout
 const PAYMENT_LINKS = {
   kit: 'https://fortis.pocketsflow.com/agency-landing',          // $99 — Agency Landing Page kit
   full: 'https://fortis.pocketsflow.com/launch-setup',          // $2,500 — Launch Setup
-  accelerator: 'https://fortis.pocketsflow.com/launch-accelerator',  // $20,000 — PR Package
-  retainer: 'https://fortis.pocketsflow.com/subscribe/6a8873e97c8cb171433cd5ee'  // $10K/mo — Marketing Retainer (subscription)
+  retainer: 'https://fortis.pocketsflow.com/subscribe/6a8873e97c8cb171433cd5ee'  // $2,500/week — Marketing Retainer (subscription)
 };
 document.querySelectorAll('.js-buy').forEach(btn => {
   btn.addEventListener('click', e => {

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fortis Digital — Launch Amplifier</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0e1116;
+    --panel: #151a22;
+    --panel2: #1a212c;
+    --border: #364052;
+    --gold: #d4a853;
+    --gold2: #e6c27a;
+    --text: #e8eaed;
+    --muted: #98a2b3;
+    --red: #e5534b;
+    --green: #3fb950;
+    --violet: #a78bfa;
+  }
+  html, body { background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide {
+    width: 1280px; height: 720px; overflow: hidden;
+    page-break-after: always; break-after: page;
+    position: relative; padding: 52px 64px 44px;
+    display: flex; flex-direction: column;
+    background:
+      radial-gradient(1200px 500px at 85% -10%, rgba(212,168,83,0.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(212,168,83,0.06), transparent 60%),
+      var(--bg);
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+
+  /* header */
+  .head { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
+  .logo { flex: 0 0 auto; }
+  .wordmark { font-weight: 800; font-size: 20px; letter-spacing: 0.14em; color: var(--text); }
+  .wordmark span { color: var(--gold); }
+  .kicker { margin-left: auto; font-size: 13px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+  .headline { font-size: 44px; font-weight: 800; line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 14px; }
+  .headline .gold { color: var(--gold); }
+  .sub { font-size: 19px; color: var(--muted); line-height: 1.45; max-width: 1000px; }
+
+  /* title slide */
+  .title-wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .eyebrow { font-size: 15px; color: var(--gold); letter-spacing: 0.34em; text-transform: uppercase; margin-bottom: 22px; }
+  .big-title { font-size: 88px; font-weight: 800; line-height: 0.98; letter-spacing: -0.02em; }
+  .big-title .gold { color: var(--gold); }
+  .big-sub { font-size: 24px; color: var(--muted); margin-top: 22px; line-height: 1.4; max-width: 900px; }
+  .stat-band { margin-top: 40px; display: flex; align-items: center; gap: 24px; }
+  .stat-num { font-size: 72px; font-weight: 800; color: var(--gold); line-height: 0.9; }
+  .stat-txt { font-size: 18px; color: var(--muted); max-width: 520px; line-height: 1.4; }
+  .tags { display: flex; gap: 12px; margin-top: 38px; flex-wrap: wrap; }
+  .tag { font-size: 14px; padding: 8px 16px; border: 1px solid var(--border); border-radius: 20px; color: var(--text); background: var(--panel); }
+  .confidential { position: absolute; right: 64px; bottom: 40px; font-size: 13px; color: var(--muted); letter-spacing: 0.08em; }
+  .ornament { position: absolute; right: 52px; top: 46%; transform: translateY(-50%); pointer-events: none; }
+
+  /* cards */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+  .card .ico { font-size: 34px; line-height: 1; margin-bottom: 12px; }
+  .card h4 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .card p, .card li { font-size: 15px; color: var(--muted); line-height: 1.5; }
+  .card ul { list-style: none; margin-top: 8px; }
+  .card li { padding: 3px 0; }
+  .card.gold { border-color: rgba(212,168,83,0.5); background: linear-gradient(180deg, rgba(212,168,83,0.10), var(--panel)); }
+  .card.gold h4 { color: var(--gold); }
+  .foot-note { margin-top: auto; font-size: 16px; color: var(--text); font-weight: 600; }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th { text-align: left; color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  td { padding: 13px 14px; border-bottom: 1px solid var(--border); }
+  tr:last-child td { border-bottom: none; }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13.5px; }
+  .pill { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; padding: 3px 9px; border-radius: 6px; }
+  .pill.red { background: rgba(229,83,75,0.16); color: #f08c86; }
+  .pill.green { background: rgba(63,185,80,0.16); color: #7ee08a; }
+  .pill.violet { background: rgba(167,139,250,0.16); color: #c4b5fd; }
+  .pill.gold { background: rgba(212,168,83,0.16); color: var(--gold2); }
+
+  /* flow */
+  .flow { display: flex; align-items: stretch; gap: 10px; }
+  .step { flex: 1; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; text-align: center; }
+  .step .ico { font-size: 30px; margin-bottom: 8px; }
+  .step b { display: block; font-size: 15px; margin-bottom: 4px; }
+  .step span { font-size: 12.5px; color: var(--muted); }
+  .arrow { align-self: center; font-size: 24px; color: var(--gold); flex: 0 0 auto; }
+
+  .big-num { font-size: 40px; font-weight: 800; color: var(--gold); }
+  .stat-tile { text-align: center; background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 24px 12px; }
+  .stat-tile .n { font-size: 40px; font-weight: 800; color: var(--gold); }
+  .stat-tile .l { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.35; }
+
+  /* value flow diagram */
+  .vf { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .vf-col { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+  .vf-col .t { font-weight: 800; font-size: 15px; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 10px; }
+  .vf-col .row { font-size: 13px; color: var(--muted); padding: 5px 0; border-top: 1px solid var(--border); }
+  .vf-col .row b { color: var(--text); }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .split h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--gold); }
+
+  .check li { list-style: none; font-size: 16px; color: var(--text); padding: 8px 0; }
+  .check li::before { content: "▸ "; color: var(--gold); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ============ SLIDE 1 — TITLE ============ -->
+<section class="slide">
+  <div class="head">
+    <svg class="logo" width="42" height="42" viewBox="0 0 44 44">
+      <rect x="2" y="2" width="40" height="40" rx="8" fill="#d4a853"/>
+      <path d="M14 13 h16 v6 h-6.5 v3 h6 v6 h-6.5 V38 h-9 V13 z" fill="#0e1116"/>
+    </svg>
+    <div class="wordmark">FORTIS<span> DIGITAL</span></div>
+    <div class="kicker">Launch Infrastructure</div>
+  </div>
+  <div class="title-wrap">
+    <div class="eyebrow">Fortis Digital</div>
+    <div class="big-title">Launch<br><span class="gold">Amplifier</span></div>
+    <div class="big-sub">Proprietary launch infrastructure for Base — solving cold starts through deep chain intelligence.</div>
+    <div class="stat-band">
+      <div class="stat-num">0 / 1,428</div>
+      <div class="stat-txt">Zero moderate-history wallets bought in the first 2 minutes across every Base launch we analyzed.</div>
+    </div>
+    <div class="tags">
+      <span class="tag">Base Chain</span>
+      <span class="tag">Proprietary Tech</span>
+      <span class="tag">Launch + Game Ecosystem</span>
+    </div>
+  </div>
+  <div class="ornament" aria-hidden="true">
+    <svg width="330" height="330" viewBox="0 0 400 400">
+      <rect x="8" y="8" width="384" height="384" rx="80" fill="none" stroke="rgba(212,168,83,0.34)" stroke-width="3"/>
+      <rect x="44" y="44" width="312" height="312" rx="64" fill="none" stroke="rgba(212,168,83,0.20)" stroke-width="2"/>
+      <path d="M136 118 h128 v52 h-56 v28 h48 v52 h-48 v84 h-72 V118 z" fill="rgba(212,168,83,0.42)"/>
+    </svg>
+  </div>
+  <div class="confidential">CONFIDENTIAL</div>
+</section>
+
+<!-- ============ SLIDE 2 — PROBLEM ============ -->
+<section class="slide">
+  <div class="head"><div class="wordmark">FORTIS<span> DIGITAL</span></div><div class="kicker">The Problem</div></div>
+  <div class="headline">Token Launches Are <span class="gold">Dead On Arrival</span></div>
+  <div class="sub">On Base, 80% of new tokens die within 48 hours. Those that survive see zero organic buyers in the first 2 minutes. Every launch follows the same pattern:</div>
+  <div class="grid3" style="margin-top:34px;">
+    <div class="card">
+      <div class="ico">🔴</div><h4>Heavy Bots</h4>
+      <ul><li>15,000+ txns of history</li><li>Industrial sniper farms</li><li>0–19 minute holds</li></ul>
+    </div>
+    <div class="card">
+      <div class="ico">⬜</div><h4>Fresh Wallets</h4>
+      <ul><li>Nonce 0–3</li><li>Throwaway addresses</li><li>One trade, never seen again</li></ul>
+    </div>
+    <div class="card gold">
+      <div class="ico">🟣</div><h4>The Gap</h4>
+      <ul><li>Nonce 5–100 wallets</li><li>Nobody fills this lane</li><li style="color:var(--gold2);font-weight:700;">This is our product</li></ul>
+    </div>
+  </div>
+  <div class="foot-note" style="margin-top:36px;">Projects spend weeks building. They launch. Bots buy and dump. Real traders never see it.</div>
+</section>
+
+<!-- ============ SLIDE 3 — RESEARCH ============ -->
+<section class="slide">
+  <div class="head"><div class="wordmark">FORTIS<span> DIGITAL</span></div><div class="kicker">Research</div></div>
+  <div class="headline">On-Chain <span class="gold">First-Buyer</span> Analysis</div>
+  <table style="margin-top:18px;">
+    <tr><th>Launch</th><th>Volume</th><th>🔴 Heavy</th><th>🟡 Active</th><th>🟣 Mod</th><th>🆕 Fresh</th></tr>
+    <tr><td><b>WOLF</b></td><td>$519,118</td><td>3</td><td>5</td><td>0</td><td>4</td></tr>
+    <tr><td><b>ALON</b></td><td>$38,316</td><td>4</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td><b>KODY</b></td><td>$28,273</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td><b>DARKY</b></td><td>$19,383</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  </table>
+  <div class="grid2" style="margin-top:28px;">
+    <div class="card">
+      <div class="ico">🔍</div><h4>Clanker Ecosystem Mapped</h4>
+      <p>Dominant Base factory identified: <span class="mono">0xe85a59…83a9</span></p>
+      <p>365 tokens/day • 380d history • Sniper threshold: $19–28K</p>
+    </div>
+    <div class="card">
+      <div class="ico">🎯</div><h4>Active Sniper Catalog</h4>
+      <p>18 wallets catalogued and monitored in real-time</p>
+      <p>Nonce 6,987–75,039 • Aerodrome watchers • Identical preferences across all</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 4 — WOLF ============ -->
+<section class="slide">
+  <div class="head"><div class="wordmark">FORTIS<span> DIGITAL</span></div><div class="kicker">Case Study</div></div>
+  <div class="headline">WOLF ($519K) — <span class="gold">Block-by-Block</span> Analysis</div>
+  <table style="margin-top:18px;">
+    <tr><th>Time</th><th>Block</th><th>Buyer</th><th>Pre-Launch Nonce</th><th>Type</th></tr>
+    <tr><td>0s</td><td>+0</td><td>Deploy + mint only</td><td>—</td><td>—</td></tr>
+    <tr><td>8s</td><td>+4</td><td>Routing only — zero buyers</td><td>—</td><td>—</td></tr>
+    <tr><td>10s</td><td>+5</td><td class="mono">0xea5b99ca…</td><td>12,075</td><td><span class="pill red">HEAVY BOT</span></td></tr>
+    <tr><td>10s</td><td>+5</td><td class="mono">0xda4abaf9…</td><td>4,101</td><td><span class="pill red">HEAVY BOT</span></td></tr>
+    <tr><td>28s</td><td>+14</td><td class="mono">0x84f0df6d…</td><td>15,237</td><td><span class="pill red">HEAVY BOT</span></td></tr>
+    <tr><td>38s</td><td>+19</td><td class="mono">0xd0a40c65…</td><td>1</td><td><span class="pill gold">FRESH</span></td></tr>
+    <tr><td>58s</td><td>+29</td><td class="mono">0x9de813b9…</td><td>331</td><td><span class="pill violet">ACTIVE</span></td></tr>
+  </table>
+  <div class="foot-note" style="margin-top:32px;">No wallet with 5–100 transactions appeared in the first 2 minutes.</div>
+  <div class="sub" style="margin-top:8px;">First moderate traders (+250 nonce) arrived at 58 seconds — too late for trending momentum.</div>
+</section>
+
+<!-- ============ SLIDE 5 — SOLUTION ============ -->
+<section class="slide">
+  <div class="head"><div class="wordmark">FORTIS<span> DIGITAL</span></div><div class="kicker">The Solution</div></div>
+  <div class="headline">Launch <span class="gold">Amplification</span></div>
+  <div class="sub">We deploy a proprietary network that fills the gap — triggering the sniper cascade that turns a cold launch into a trending token.</div>
+  <div class="flow" style="margin-top:40px;">
+    <div class="step"><div class="ico">🔧</div><b>Network Activation</b><span>Proprietary</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="ico">🚀</div><b>Launch Execution</b><span>Block 1 deploy + pool</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="ico">🎯</div><b>Sniper Cascade</b><span>Catalogued wallets</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="ico">📈</div><b>DexScreener Trending</b><span>$30K+ threshold</span></div>
+  </div>
+  <div class="grid2" style="margin-top:40px;">
+    <div class="card gold"><h4>What We Provide</h4>
+      <p>Pre-launch activation + block 1 execution + volume cascade. Full-service from wallet activation to trending.</p></div>
+    <div class="card"><h4>Client Outcome</h4>
+      <p>$30K+ volume • DexScreener trending • Real buyer FOMO. Organic volume follows the sniper cascade.</p></div>
+  </div>
+  <div class="foot-note" style="margin-top:28px;">Proprietary methodology — competitive moat</div>
+</section>
+
+<!-- ============ SLIDE 6 — ECOSYSTEM ============ -->
+<section class="slide">
+  <div class="head"><div class="wordmark">FORTIS<span> DIGITAL</span></div><div class="kicker">Ecosystem</div></div>
+  <div class="headline">Three Products, <span class="gold">One Flywheel</span></div>
+  <div class="grid3" style="margin-top:26px;">
+    <div class="card gold"><div class="ico">🚀</div><h4>Launch Amplifier</h4><p>Service revenue<br>$10–15K per launch</p></div>
+    <div class="card"><div class="ico">🎮</div><h4>The Last Exit</h4><p>On-chain game<br>5% pool fee → stEXIT</p></div>
+    <div class="card"><div class="ico">🏦</div><h4>stEXIT Token</h4><p>Staking flywheel<br>Revenue buybacks</p></div>
+  </div>
+  <div class="vf" style="margin-top:30px;">
+    <div class="vf-col"><div class="t">LAUNCHES</div>
+      <div class="row">Launch Fee <b>$10–15K</b></div>
+      <div class="row">1% Supply <b>Per Launch</b></div></div>
+    <div class="vf-col"><div class="t">GAMES</div>
+      <div class="row">1% Game Fee → <b>Protocol Treasury</b></div>
+      <div class="row">5% Game Fee → <b>stEXIT</b></div></div>
+    <div class="vf-col"><div class="t">TOKEN</div>
+      <div class="row"><b>Buyback &amp; Burn</b></div>
+      <div class="row"><b>Staker Yield</b></div>
+      <div class="row"><b>Liquidity Depth</b></div></div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 7 — stEXIT TOKENOMICS ============ -->
+<section class="slide">
+  <div class="head"><div class="wordmark">FORTIS<span> DIGITAL</span></div><div class="kicker">Tokenomics</div></div>
+  <div class="headline">stEXIT <span class="gold">Tokenomics</span></div>
+  <div class="split" style="margin-top:20px;">
+    <div>
+      <h3>Supply Allocation</h3>
+      <table>
+        <tr><th>Bucket</th><th>%</th><th>Vesting</th></tr>
+        <tr><td>Staking Rewards</td><td><b>35%</b></td><td>4yr vest</td></tr>
+        <tr><td>Liquidity (Aerodrome)</td><td><b>20%</b></td><td>Launch locked</td></tr>
+        <tr><td>Community / Airdrop</td><td><b>15%</b></td><td>Game rewards</td></tr>
+        <tr><td>Team &amp; Advisors</td><td><b>15%</b></td><td>12m cliff, 36m vest</td></tr>
+        <tr><td>Treasury / DAO</td><td><b>10%</b></td><td>Governance</td></tr>
+        <tr><td>Early Backers</td><td><b>5%</b></td><td>12m cliff, 24m vest</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Flywheel Mechanics</h3>
+      <ul class="check">
+        <li>Stake stEXIT — earn revenue share from games + launches</li>
+        <li>Revenue buys stEXIT — 5% of every Last Exit pool → market buy</li>
+        <li>Buybacks distributed — purchased tokens → stakers</li>
+        <li>Higher APY → more staking — reduced circulating supply</li>
+        <li>Token appreciates — attracts more game players → more fees</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tags" style="margin-top:28px;">
+    <span class="tag">Stake-to-earn</span>
+    <span class="tag">Revenue-backed</span>
+    <span class="tag">No inflationary printing</span>
+  </div>
+</section>
+
+<!-- ============ SLIDE 8 — THE LAST EXIT ============ -->
+<section class="slide">
+  <div class="head"><div class="wordmark">FORTIS<span> DIGITAL</span></div><div class="kicker">Product</div></div>
+  <div class="headline">The Last Exit — <span class="gold">On-Chain Game</span></div>
+  <div class="sub">A transparent, verifiable ponzi game where everyone knows the rules. The demand for daily ROI platforms never died — it just moved on-chain.</div>
+  <div class="split" style="margin-top:30px;">
+    <div class="card">
+      <h4 style="color:var(--gold);margin-bottom:10px;">How It Works</h4>
+      <table>
+        <tr><td>Entry Tiers</td><td><b>0.01Ξ / 0.1Ξ / 0.5Ξ</b></td></tr>
+        <tr><td>Pool Revenue</td><td><b>New deposits fund exits</b></td></tr>
+        <tr><td>Protocol Fee</td><td><b>1% → operations</b></td></tr>
+        <tr><td>stEXIT Fee</td><td><b>5% → stakers</b></td></tr>
+        <tr><td>Collapse</td><td><b>Fixed block deadline</b></td></tr>
+        <tr><td>Winner</td><td><b>Last exit before collapse</b></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--gold);margin-bottom:10px;">Why It Works</h4>
+      <ul class="check">
+        <li>🔍 Fully Verifiable — pool balance, fee flow, collapse block all on-chain. No "trust us."</li>
+        <li>📊 Strategy Content — every cycle generates drama: exit timing, collapse predictions, pool screenshots. All viral.</li>
+        <li>👥 Inherently Social — PvEvP: players vs environment vs each other. A collective game of chicken.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tags" style="margin-top:24px;">
+    <span class="tag">3 Entry Tiers</span>
+    <span class="tag">Verifiable On-Chain</span>
+    <span class="tag">Community Content Engine</span>
+  </div>
+</section>
+
+<!-- ============ SLIDE 9 — MARKET OPPORTUNITY ============ -->
+<section class="slide">
+  <div class="head"><div class="wordmark">FORTIS<span> DIGITAL</span></div><div class="kicker">Market</div></div>
+  <div class="headline">Market <span class="gold">Opportunity</span></div>
+  <div class="grid3" style="margin-top:28px;">
+    <div class="stat-tile"><div class="n">365</div><div class="l">Tokens/day via Clanker alone</div></div>
+    <div class="stat-tile"><div class="n">~20</div><div class="l">Hit $20K+ (sniper threshold)</div></div>
+    <div class="stat-tile"><div class="n">$19–28K</div><div class="l">Volume to trigger cascade</div></div>
+  </div>
+  <div class="headline" style="font-size:26px;margin-top:34px;">Competitive Landscape</div>
+  <div class="card" style="margin-top:16px;">
+    <ul class="check">
+      <li>🏭 Clanker factory reverse-engineered — snipers trust this factory</li>
+      <li>🎯 Active sniper wallets catalogued — we know exactly who buys first</li>
+      <li>📊 Volume threshold validated — data-driven, not speculative</li>
+      <li>🔧 Infrastructure built and tested — ready to deploy</li>
+      <li>🚫 Zero competitors on Base — Peanut.trade (Solana) exited</li>
+    </ul>
+  </div>
+  <div class="foot-note" style="margin-top:26px;">Nobody is doing launch amplification on Base.</div>
+</section>
+
+<!-- ============ SLIDE 10 — ROADMAP & ASK ============ -->
+<section class="slide">
+  <div class="head"><div class="wordmark">FORTIS<span> DIGITAL</span></div><div class="kicker">Roadmap &amp; Ask</div></div>
+  <div class="headline">Roadmap <span class="gold">&amp; Ask</span></div>
+  <div class="split" style="margin-top:22px;">
+    <div class="card gold">
+      <h4>Phase 1 — Launch</h4>
+      <table>
+        <tr><td><b>$12K</b></td><td>Full launch stack</td></tr>
+        <tr><td><b>50 wallets</b></td><td>3–5 day network</td></tr>
+        <tr><td><b>The Last Exit + stEXIT token</b></td><td></td></tr>
+        <tr><td><b>Multi-CEX funding infrastructure</b></td><td></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--gold);">Phase 2 — Revenue</h4>
+      <table>
+        <tr><td><b>$10–15K</b></td><td>Per client launch</td></tr>
+        <tr><td><b>1%</b></td><td>Supply equity per launch</td></tr>
+        <tr><td><b>5%</b></td><td>Game fees → stEXIT</td></tr>
+        <tr><td><b>1%</b></td><td>Protocol fee</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="card" style="margin-top:24px;">
+    <h4 style="color:var(--gold);">Targets (6 months)</h4>
+    <ul class="check">
+      <li>4 launches/month × $12.5K avg = <b>$50K/mo</b> base</li>
+      <li>Game volume: 100+ players/cycle × 3 tiers</li>
+      <li>stEXIT TVL: growing with every launch</li>
+    </ul>
+  </div>
+  <div class="confidential">Fortis Digital • Base Chain</div>
+</section>
+
+</body>
+</html>

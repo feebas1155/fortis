@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmation — Agency Landing Template</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0f1115;
+    color: #e4e8ee;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .card {
+    background: #171a21;
+    border: 1px solid #242a35;
+    border-radius: 16px;
+    max-width: 720px;
+    width: 100%;
+    padding: 44px 48px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(46, 204, 113, 0.12);
+    border: 1px solid rgba(46, 204, 113, 0.35);
+    color: #2ecc71;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.4px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    color: #8b95a5;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #d4a853;
+    margin: 28px 0 10px;
+  }
+  .order-box {
+    border: 1px solid #242a35;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .order-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #1e242e;
+  }
+  .order-row:last-child { border-bottom: none; }
+  .order-row .k { color: #8b95a5; }
+  .order-row .v { font-weight: 600; text-align: right; }
+  .status-ok { color: #2ecc71; font-weight: 600; }
+  .key-box {
+    background: #0d0f13;
+    border: 1px solid #242a35;
+    border-radius: 10px;
+    padding: 16px;
+    font-family: 'SF Mono', 'Cascadia Code', monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #c8d0dc;
+    word-break: break-all;
+    user-select: all;
+  }
+  .files {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .file {
+    background: #0d0f13;
+    border: 1px solid #242a35;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #e4e8ee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .file .ic { color: #d4a853; font-size: 15px; }
+  .footer {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid #1e242e;
+    color: #6b7484;
+    font-size: 12px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">✓ Payment received</div>
+    <h1>Order Confirmation — Agency Landing Template</h1>
+    <p class="subtitle">What the customer receives immediately after purchase</p>
+
+    <div class="section-label">Order</div>
+    <div class="order-box">
+      <div class="order-row">
+        <span class="k">Order</span>
+        <span class="v">#6a71e87da8ec03ca24e4da56</span>
+      </div>
+      <div class="order-row">
+        <span class="k">Product</span>
+        <span class="v">Modern Agency Landing Page — HTML Template</span>
+      </div>
+      <div class="order-row">
+        <span class="k">Customer</span>
+        <span class="v">maxibenyoung@gmail.com</span>
+      </div>
+      <div class="order-row">
+        <span class="k">License domain</span>
+        <span class="v">feebasmax11.site</span>
+      </div>
+      <div class="order-row">
+        <span class="k">License term</span>
+        <span class="v">365 days</span>
+      </div>
+      <div class="order-row">
+        <span class="k">Amount paid</span>
+        <span class="v">$50.00</span>
+      </div>
+      <div class="order-row">
+        <span class="k">Status</span>
+        <span class="v status-ok">✓ Fulfilled — delivered</span>
+      </div>
+    </div>
+
+    <div class="section-label">License Key (delivered in confirmation email)</div>
+    <div class="key-box">eyJkb21haW4iOiJmZWViYXNtYXgxMS5zaXRlIiwiZW1haWwiOiJtYXhpYmVueW91bmdAZ21haWwuY29tIiwiZXhwaXJlc0F0IjoxODE3ODMyMTQ2LCJpc3N1ZWRBdCI6MTc4NjI5NjE0Niwic2l0ZSI6ImFnZW5jeS1sYW5kaW5nIn0.MEQCIHKmY0BJtGJFLBPPFHAeAZrMmX8h9yCcmbdncKJ-qddgAiAiBoWfOXSiOh5zpjVo2UNn1iKiJ1E2_tluVcqaCIFNkA</div>
+
+    <div class="section-label">Download (template files)</div>
+    <div class="files">
+      <div class="file"><span class="ic">📄</span> index.html</div>
+      <div class="file"><span class="ic">🔑</span> license.js</div>
+      <div class="file"><span class="ic">📋</span> README.txt</div>
+    </div>
+
+    <div class="footer">Fortis Digital · fortisdigital.dev · Support: hello@fortisdigital.dev</div>
+  </div>
+</body>
+</html>

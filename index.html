@@ -221,7 +221,7 @@
   .step p { font-size: 0.8rem; line-height: 1.5; }
 
   /* ── Pricing ── */
-  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; align-items: stretch; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
   .plan {
     background: var(--cream); border: 3px solid var(--ink);
     padding: 28px 22px; box-shadow: var(--shadow); display: flex; flex-direction: column;
@@ -478,30 +478,15 @@
         <a href="#" class="btn btn-ghost js-buy" data-plan="kit">Buy — $99</a>
       </div>
 
-      <div class="plan">
-        <div class="plan-name">Launch Setup</div>
-        <div class="plan-price">$2,500<span>per launch</span></div>
-        <div class="plan-desc">Done-for-you launch setup: landing page and docs live on your domain, plus token contract deployment from audited templates.</div>
-        <ul class="plan-features">
-          <li>Landing page + docs site deployed</li>
-          <li>Token contract from audited templates</li>
-          <li>Branding &amp; content setup</li>
-          <li>2 revision rounds</li>
-          <li>Pre-launch security audit</li>
-          <li>30-day post-launch support</li>
-        </ul>
-        <a href="#" class="btn js-buy" data-plan="full">Start a launch — $2,500</a>
-      </div>
-
       <div class="plan featured">
         <div class="plan-badge">Flagship</div>
-        <div class="plan-name">Sniper Service</div>
-        <div class="plan-price">$20,000<span>per launch</span></div>
-        <div class="plan-desc">Sniping as a service with warmed wallets — done for you, end-to-end.</div>
+        <div class="plan-name">PR Package</div>
+        <div class="plan-price">$20,000<span>per campaign</span></div>
+        <div class="plan-desc">Press release distribution, CoinGecko &amp; CoinMarketCap listing applications, and community growth.</div>
         <ul class="plan-features">
-          <li>Warmed wallet infrastructure</li>
-          <li>Launch snipe execution</li>
-          <li>Everything in Launch Setup</li>
+          <li>Press release distribution (tier-1 crypto media)</li>
+          <li>CoinGecko &amp; CoinMarketCap listing applications</li>
+          <li>Community growth</li>
           <li>Priority scheduling + dedicated support</li>
         </ul>
         <a href="contact.html" class="btn">Contact us</a>
@@ -560,12 +545,10 @@
 </footer>
 
 <script>
-// Payment links — Pocketsflow checkout (all tiers)
-// $99 kit = /agency-landing · $2,500 launch = /launch-setup
-// $20K Sniper Service = contact us (no self-serve) · $2,500/week retainer = subscription checkout
+// Payment links — Pocketsflow checkout
+// $99 kit = /agency-landing · $20K PR Package = contact us (no self-serve) · $2,500/week retainer = subscription checkout
 const PAYMENT_LINKS = {
   kit: 'https://fortis.pocketsflow.com/agency-landing',          // $99 — Agency Landing Page kit
-  full: 'https://fortis.pocketsflow.com/launch-setup',          // $2,500 — Launch Setup
   retainer: 'https://fortis.pocketsflow.com/subscribe/6a8873e97c8cb171433cd5ee'  // $2,500/week — Marketing Retainer (subscription)
 };
 document.querySelectorAll('.js-buy').forEach(btn => {
